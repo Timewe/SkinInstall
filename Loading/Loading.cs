@@ -30,10 +30,11 @@ namespace Loading
             if(i==0)
             {
                 //初始化
-                Initialize();
-                Process.Start("SkinInstall.exe");
-                this.Close();
-                this.Dispose();
+                //Initialize();
+                //Process.Start("SkinInstall.exe");
+                //this.Close();
+                //this.Dispose();
+                MessageBox.Show("yes");
             }
 
         }
@@ -76,14 +77,14 @@ namespace Loading
         }
         private void CheckNewVersion()
         {
-            if (this.CheckUpdateServerState("www.timeweii.com"))
+            if (this.CheckUpdateServerState("github.com"))
             {
                 //Version version = Assembly.GetExecutingAssembly().GetName().Version;
                 try
                 {
                     new WebClient();
                     XmlDocument document = new XmlDocument();
-                    document.Load("http://www.timeweii.com/BatchRenameVersion.xml");
+                    document.Load("https://github.com/skykillerone/SkinInstall/blob/master/Loading/Version.xml");
                     Version version2 = new Version(document.SelectSingleNode("/ver/newVer").InnerText);
                     Version version = new Version(document.SelectSingleNode("/ver/nowVer").InnerText);
 
